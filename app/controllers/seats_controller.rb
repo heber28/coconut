@@ -41,8 +41,14 @@ class SeatsController < ApplicationController
   # POST /seats.xml
   def create
     @seat = Seat.new(params[:seat])
-    @seat.save
-    render :partial=>'flights/seat_list',:locals=>{:seats=>@seat.flight.seats}
+    render :update do |page|
+      if @seat.save
+        page.replace_html 'notice', 'Seat was successfully booked'
+      else
+        page.replace_html 'notice', 'Sorry - the seat could not be booked'
+      end
+      page.replace_html 'seats', :partial => 'flights/seat_list', :locals=>{:seats=>@seat.flight.seats}
+    end
   end 
 
   # PUT /seats/1
