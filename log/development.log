@@ -1061,3 +1061,493 @@ Processing SeatsController#flight_seats (for 127.0.0.1 at 2010-10-05 06:09:58) [
   [4;35;1mSeat Load (0.9ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
 Rendered flights/_seat_list (26.7ms)
 Completed in 40ms (View: 27, DB: 1) | 200 OK [http://localhost/flights/4/seats?authenticity_token=5e85960cb172b5589039eb7081b52de48503fe01]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 09:01:39) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mFlight Load (0.7ms)[0m   [0;1mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (2.1ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (35.6ms)
+Rendered flights/_new_seat (3.7ms)
+Completed in 216ms (View: 185, DB: 3) | 200 OK [http://localhost/flights/4/]
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-05 09:02:01) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"5e85960cb172b5589039eb7081b52de48503fe01", "seat"=>{"name"=>"rodrigo", "flight_id"=>"4", "baggage"=>"1"}}
+  [4;36;1mFlight Load (0.6ms)[0m   [0;1mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "seats" WHERE ("seats".flight_id = 4) [0m
+  [4;36;1mSeat Create (0.4ms)[0m   [0;1mINSERT INTO "seats" ("name", "flight_id", "created_at", "baggage", "updated_at") VALUES('rodrigo', 4, '2010-10-05 12:02:01', 1.0, '2010-10-05 12:02:01')[0m
+Redirected to #<Seat:0xb6d76a70>
+Completed in 114ms (DB: 1) | 302 Found [http://localhost/seats]
+
+
+Processing SeatsController#show (for 127.0.0.1 at 2010-10-05 09:02:01) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mSeat Load (0.3ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats"."id" = 11) [0m
+Rendering template within layouts/seats
+Rendering seats/show
+Completed in 81ms (View: 22, DB: 0) | 200 OK [http://localhost/seats/11]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 09:02:04) [GET]
+  [4;36;1mSeat Load (1.4ms)[0m   [0;1mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 68ms (View: 59, DB: 1) | 200 OK [http://localhost/seats]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-05 09:02:58) [GET]
+
+
+ActionController::RoutingError (No route matches "/4" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing/route_set.rb:390:in `recognize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:112:in `dispatch_unlocked'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:125:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:124:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:124:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:134:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:41:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:103:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:74:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:60:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:49
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /home/heber/coconut/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-05 09:03:13) [GET]
+
+
+ActionController::RoutingError (No route matches "/flight/4" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing/route_set.rb:390:in `recognize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:112:in `dispatch_unlocked'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:125:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:124:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:124:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:134:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:41:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:103:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:74:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:60:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:49
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /home/heber/coconut/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 09:03:27) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mFlight Load (0.3ms)[0m   [0;1mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (1.1ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (30.3ms)
+Rendered flights/_new_seat (3.3ms)
+Completed in 87ms (View: 76, DB: 1) | 200 OK [http://localhost/flights/4]
+
+
+Processing SeatsController#destroy (for 127.0.0.1 at 2010-10-05 09:03:32) [DELETE]
+  Parameters: {"authenticity_token"=>"f3a5ed0ac4c2852852f2cfe6e0657ed5f96ef204", "id"=>"11"}
+  [4;36;1mSeat Load (0.3ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats"."id" = 11) [0m
+  [4;35;1mSeat Destroy (0.3ms)[0m   [0mDELETE FROM "seats" WHERE "id" = 11[0m
+Redirected to http://localhost:3000/seats
+Completed in 109ms (DB: 1) | 302 Found [http://localhost/seats/11]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 09:03:32) [GET]
+  [4;36;1mSeat Load (1.1ms)[0m   [0;1mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 38ms (View: 30, DB: 1) | 200 OK [http://localhost/seats]
+
+
+Processing SeatsController#destroy (for 127.0.0.1 at 2010-10-05 09:03:36) [DELETE]
+  Parameters: {"authenticity_token"=>"f3a5ed0ac4c2852852f2cfe6e0657ed5f96ef204", "id"=>"10"}
+  [4;35;1mSeat Load (0.4ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats"."id" = 10) [0m
+  [4;36;1mSeat Destroy (0.3ms)[0m   [0;1mDELETE FROM "seats" WHERE "id" = 10[0m
+Redirected to http://localhost:3000/seats
+Completed in 108ms (DB: 1) | 302 Found [http://localhost/seats/10]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 09:03:36) [GET]
+  [4;35;1mSeat Load (1.5ms)[0m   [0mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 34ms (View: 26, DB: 1) | 200 OK [http://localhost/seats]
+
+
+Processing SeatsController#destroy (for 127.0.0.1 at 2010-10-05 09:03:39) [DELETE]
+  Parameters: {"authenticity_token"=>"f3a5ed0ac4c2852852f2cfe6e0657ed5f96ef204", "id"=>"9"}
+  [4;36;1mSeat Load (0.4ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats"."id" = 9) [0m
+  [4;35;1mSeat Destroy (0.3ms)[0m   [0mDELETE FROM "seats" WHERE "id" = 9[0m
+Redirected to http://localhost:3000/seats
+Completed in 111ms (DB: 1) | 302 Found [http://localhost/seats/9]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 09:03:39) [GET]
+  [4;36;1mSeat Load (0.9ms)[0m   [0;1mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 30ms (View: 22, DB: 1) | 200 OK [http://localhost/seats]
+
+
+Processing SeatsController#destroy (for 127.0.0.1 at 2010-10-05 09:03:42) [DELETE]
+  Parameters: {"authenticity_token"=>"f3a5ed0ac4c2852852f2cfe6e0657ed5f96ef204", "id"=>"8"}
+  [4;35;1mSeat Load (0.3ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats"."id" = 8) [0m
+  [4;36;1mSeat Destroy (0.2ms)[0m   [0;1mDELETE FROM "seats" WHERE "id" = 8[0m
+Redirected to http://localhost:3000/seats
+Completed in 110ms (DB: 0) | 302 Found [http://localhost/seats/8]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 09:03:42) [GET]
+  [4;35;1mSeat Load (0.9ms)[0m   [0mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 27ms (View: 19, DB: 1) | 200 OK [http://localhost/seats]
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-05 09:03:48) [GET]
+  [4;36;1mFlight Load (0.6ms)[0m   [0;1mSELECT * FROM "flights" [0m
+Rendering template within layouts/flights
+Rendering flights/index
+Completed in 19ms (View: 11, DB: 1) | 200 OK [http://localhost/flights]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 09:03:51) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (0.6ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (17.1ms)
+Rendered flights/_new_seat (3.4ms)
+Completed in 44ms (View: 34, DB: 1) | 200 OK [http://localhost/flights/4]
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-05 09:04:01) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"f3a5ed0ac4c2852852f2cfe6e0657ed5f96ef204", "seat"=>{"name"=>"denis", "flight_id"=>"4", "baggage"=>"2"}}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "seats" WHERE ("seats".flight_id = 4) [0m
+  [4;35;1mSeat Create (0.2ms)[0m   [0mINSERT INTO "seats" ("name", "flight_id", "created_at", "baggage", "updated_at") VALUES('denis', 4, '2010-10-05 12:04:01', 2.0, '2010-10-05 12:04:01')[0m
+Redirected to #<Seat:0xb6d4bde8>
+Completed in 109ms (DB: 1) | 302 Found [http://localhost/seats]
+
+
+Processing SeatsController#show (for 127.0.0.1 at 2010-10-05 09:04:01) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mSeat Load (0.3ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats"."id" = 12) [0m
+Rendering template within layouts/seats
+Rendering seats/show
+Completed in 13ms (View: 5, DB: 0) | 200 OK [http://localhost/seats/12]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 09:04:04) [GET]
+  [4;35;1mSeat Load (0.9ms)[0m   [0mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 82ms (View: 74, DB: 1) | 200 OK [http://localhost/seats]
+
+
+Processing SeatsController#new (for 127.0.0.1 at 2010-10-05 09:04:38) [GET]
+Rendering template within layouts/seats
+Rendering seats/new
+Completed in 28ms (View: 20, DB: 0) | 200 OK [http://localhost/seats/new]
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-05 09:04:54) [GET]
+  [4;36;1mFlight Load (1.0ms)[0m   [0;1mSELECT * FROM "flights" [0m
+Rendering template within layouts/flights
+Rendering flights/index
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/flights]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 09:04:56) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (0.7ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (20.3ms)
+Rendered flights/_new_seat (3.5ms)
+Completed in 48ms (View: 38, DB: 1) | 200 OK [http://localhost/flights/4]
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-05 09:05:04) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"f3a5ed0ac4c2852852f2cfe6e0657ed5f96ef204", "seat"=>{"name"=>"wilson", "flight_id"=>"4", "baggage"=>"1"}}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "seats" WHERE ("seats".flight_id = 4) [0m
+  [4;35;1mSeat Create (0.2ms)[0m   [0mINSERT INTO "seats" ("name", "flight_id", "created_at", "baggage", "updated_at") VALUES('wilson', 4, '2010-10-05 12:05:04', 1.0, '2010-10-05 12:05:04')[0m
+Redirected to #<Seat:0xb6d36808>
+Completed in 147ms (DB: 1) | 302 Found [http://localhost/seats]
+
+
+Processing SeatsController#show (for 127.0.0.1 at 2010-10-05 09:05:04) [GET]
+  Parameters: {"id"=>"13"}
+  [4;36;1mSeat Load (0.6ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats"."id" = 13) [0m
+Rendering template within layouts/seats
+Rendering seats/show
+Completed in 14ms (View: 5, DB: 1) | 200 OK [http://localhost/seats/13]
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-05 09:14:06) [GET]
+  [4;35;1mFlight Load (0.6ms)[0m   [0mSELECT * FROM "flights" [0m
+Rendering template within layouts/flights
+Rendering flights/index
+Completed in 73ms (View: 13, DB: 1) | 200 OK [http://localhost/flights]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 09:14:08) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mFlight Load (0.3ms)[0m   [0;1mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.9ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (24.9ms)
+Rendered flights/_new_seat (3.4ms)
+Completed in 53ms (View: 43, DB: 1) | 200 OK [http://localhost/flights/4]
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-05 09:14:18) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"2a89d44e690447071a061881dc6d571e4458a3a4", "seat"=>{"name"=>"carlos", "flight_id"=>"4", "baggage"=>"2"}}
+  [4;36;1mFlight Load (0.3ms)[0m   [0;1mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "seats" WHERE ("seats".flight_id = 4) [0m
+  [4;36;1mSeat Create (0.2ms)[0m   [0;1mINSERT INTO "seats" ("name", "flight_id", "created_at", "baggage", "updated_at") VALUES('carlos', 4, '2010-10-05 12:14:18', 2.0, '2010-10-05 12:14:18')[0m
+  [4;35;1mSeat Load (2.0ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (31.5ms)
+Completed in 135ms (View: 33, DB: 3) | 200 OK [http://localhost/seats]
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-05 09:15:08) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"2a89d44e690447071a061881dc6d571e4458a3a4", "seat"=>{"name"=>"monica", "flight_id"=>"4", "baggage"=>"1"}}
+
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+    /vendor/rails/actionpack/lib/action_controller/request_forgery_protection.rb:86:in `verify_authenticity_token'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:178:in `send'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:178:in `evaluate_method'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:166:in `call'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:225:in `call'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:629:in `run_before_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:615:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:184:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:112:in `dispatch_unlocked'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:125:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:124:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:124:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:134:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:41:in `dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:103:in `handle_dispatch'
+    /vendor/rails/railties/lib/webrick_server.rb:74:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /vendor/rails/railties/lib/webrick_server.rb:60:in `dispatch'
+    /vendor/rails/railties/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:49
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /home/heber/coconut/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (20.3ms)
+Rendered /home/heber/coconut/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.9ms)
+Rendering /home/heber/coconut/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (unprocessable_entity)
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-05 09:15:21) [GET]
+  [4;36;1mFlight Load (0.7ms)[0m   [0;1mSELECT * FROM "flights" [0m
+Rendering template within layouts/flights
+Rendering flights/index
+Completed in 48ms (View: 40, DB: 1) | 200 OK [http://localhost/flights/]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 09:15:24) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (1.1ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (28.5ms)
+Rendered flights/_new_seat (3.5ms)
+Completed in 103ms (View: 46, DB: 1) | 200 OK [http://localhost/flights/4]
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-05 09:15:37) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"698453d9cac5c306e76be8c80f8df64aab95c00f", "seat"=>{"name"=>"marco", "flight_id"=>"4", "baggage"=>"2"}}
+  [4;35;1mFlight Load (0.4ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "seats" WHERE ("seats".flight_id = 4) [0m
+  [4;35;1mSeat Create (0.4ms)[0m   [0mINSERT INTO "seats" ("name", "flight_id", "created_at", "baggage", "updated_at") VALUES('marco', 4, '2010-10-05 12:15:37', 2.0, '2010-10-05 12:15:37')[0m
+  [4;36;1mSeat Load (2.3ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (31.7ms)
+Completed in 176ms (View: 32, DB: 3) | 200 OK [http://localhost/seats]
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-05 09:28:26) [GET]
+  [4;36;1mFlight Load (0.7ms)[0m   [0;1mSELECT * FROM "flights" [0m
+Rendering template within layouts/flights
+Rendering flights/index
+Completed in 46ms (View: 38, DB: 1) | 200 OK [http://localhost/flights]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 09:28:28) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (1.0ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (29.3ms)
+Rendered flights/_new_seat (3.5ms)
+Completed in 57ms (View: 47, DB: 1) | 200 OK [http://localhost/flights/4]
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-05 09:28:39) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"e55f1dfe91e57001f78f4648e4bdb281328e9945", "seat"=>{"name"=>"monica", "flight_id"=>"4", "baggage"=>"1"}}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "seats" WHERE ("seats".flight_id = 4) [0m
+  [4;35;1mSeat Create (0.4ms)[0m   [0mINSERT INTO "seats" ("name", "flight_id", "created_at", "baggage", "updated_at") VALUES('monica', 4, '2010-10-05 12:28:39', 1.0, '2010-10-05 12:28:39')[0m
+  [4;36;1mSeat Load (2.4ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (38.5ms)
+Completed in 148ms (View: 39, DB: 3) | 200 OK [http://localhost/seats]
+
+
+Processing SeatsController#flight_seats (for 127.0.0.1 at 2010-10-05 09:28:48) [GET]
+  Parameters: {"flight_id"=>"4", "authenticity_token"=>"e55f1dfe91e57001f78f4648e4bdb281328e9945"}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;36;1mSeat Load (1.1ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (33.6ms)
+Completed in 47ms (View: 34, DB: 1) | 200 OK [http://localhost/flights/4/seats?authenticity_token=e55f1dfe91e57001f78f4648e4bdb281328e9945]
+
+
+Processing SeatsController#flight_seats (for 127.0.0.1 at 2010-10-05 09:28:48) [GET]
+  Parameters: {"flight_id"=>"4", "authenticity_token"=>"e55f1dfe91e57001f78f4648e4bdb281328e9945"}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;36;1mSeat Load (1.1ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (32.9ms)
+Completed in 46ms (View: 33, DB: 1) | 200 OK [http://localhost/flights/4/seats?authenticity_token=e55f1dfe91e57001f78f4648e4bdb281328e9945]
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-05 09:28:56) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"e55f1dfe91e57001f78f4648e4bdb281328e9945", "seat"=>{"name"=>"gabriel", "flight_id"=>"4", "baggage"=>"2"}}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "seats" WHERE ("seats".flight_id = 4) [0m
+  [4;35;1mSeat Create (0.2ms)[0m   [0mINSERT INTO "seats" ("name", "flight_id", "created_at", "baggage", "updated_at") VALUES('gabriel', 4, '2010-10-05 12:28:56', 2.0, '2010-10-05 12:28:56')[0m
+  [4;36;1mSeat Load (2.5ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (38.1ms)
+Completed in 132ms (View: 38, DB: 3) | 200 OK [http://localhost/seats]
+
+
+Processing SeatsController#destroy (for 127.0.0.1 at 2010-10-05 09:29:09) [DELETE]
+  Parameters: {"authenticity_token"=>"e55f1dfe91e57001f78f4648e4bdb281328e9945", "id"=>"13"}
+  [4;35;1mSeat Load (0.3ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats"."id" = 13) [0m
+  [4;36;1mSeat Destroy (0.2ms)[0m   [0;1mDELETE FROM "seats" WHERE "id" = 13[0m
+Redirected to http://localhost:3000/seats
+Completed in 111ms (DB: 0) | 302 Found [http://localhost/seats/13]
+
+
+Processing SeatsController#flight_seats (for 127.0.0.1 at 2010-10-05 09:29:09) [GET]
+  Parameters: {"flight_id"=>"4", "authenticity_token"=>"e55f1dfe91e57001f78f4648e4bdb281328e9945"}
+  [4;35;1mFlight Load (0.4ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;36;1mSeat Load (1.2ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (35.1ms)
+Completed in 109ms (View: 37, DB: 2) | 200 OK [http://localhost/flights/4/seats?authenticity_token=e55f1dfe91e57001f78f4648e4bdb281328e9945]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 09:29:09) [GET]
+  [4;35;1mSeat Load (1.5ms)[0m   [0mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 44ms (View: 35, DB: 1) | 200 OK [http://localhost/seats]
+
+
+Processing SeatsController#destroy (for 127.0.0.1 at 2010-10-05 09:29:13) [DELETE]
+  Parameters: {"authenticity_token"=>"e55f1dfe91e57001f78f4648e4bdb281328e9945", "id"=>"12"}
+  [4;36;1mSeat Load (0.3ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats"."id" = 12) [0m
+  [4;35;1mSeat Destroy (0.2ms)[0m   [0mDELETE FROM "seats" WHERE "id" = 12[0m
+Redirected to http://localhost:3000/seats
+Completed in 87ms (DB: 1) | 302 Found [http://localhost/seats/12]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 09:29:13) [GET]
+  [4;36;1mSeat Load (1.2ms)[0m   [0;1mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 40ms (View: 32, DB: 1) | 200 OK [http://localhost/seats]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 09:29:21) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (1.0ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (29.4ms)
+Rendered flights/_new_seat (3.2ms)
+Completed in 55ms (View: 45, DB: 1) | 200 OK [http://localhost/flights/4]

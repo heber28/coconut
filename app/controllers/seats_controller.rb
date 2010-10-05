@@ -41,18 +41,9 @@ class SeatsController < ApplicationController
   # POST /seats.xml
   def create
     @seat = Seat.new(params[:seat])
- 
-    respond_to do |format|
-      if @seat.save
-        flash[:notice] = 'Seat was successfully created.'
-        format.html { redirect_to(@seat) }
-        format.xml  { render :xml => @seat, :status => :created, :location => @seat }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @seat.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+    @seat.save
+    render :partial=>'flights/seat_list',:locals=>{:seats=>@seat.flight.seats}
+  end 
 
   # PUT /seats/1
   # PUT /seats/1.xml
