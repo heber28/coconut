@@ -756,3 +756,160 @@ Rendering flights/show
 Rendered flights/_seat_list (20.3ms)
 Rendered flights/_new_seat (2.7ms)
 Completed in 44ms (View: 34, DB: 1) | 200 OK [http://localhost/flights/4]
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-05 05:32:30) [GET]
+  [4;36;1mFlight Load (17.0ms)[0m   [0;1mSELECT * FROM "flights" [0m
+Rendering template within layouts/flights
+Rendering flights/index
+Completed in 166ms (View: 128, DB: 17) | 200 OK [http://localhost/flights]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 05:32:33) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (1.6ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (25.5ms)
+Rendered flights/_new_seat (5.9ms)
+Completed in 100ms (View: 90, DB: 2) | 200 OK [http://localhost/flights/4]
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-05 05:32:51) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"6d76641f49aade5453f6165523462ec51c40ac61", "seat"=>{"name"=>"marco", "flight_id"=>"4", "baggage"=>"4"}}
+  [4;35;1mFlight Load (0.4ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "seats" WHERE ("seats".flight_id = 4) [0m
+  [4;35;1mSeat Create (0.4ms)[0m   [0mINSERT INTO "seats" ("name", "flight_id", "created_at", "baggage", "updated_at") VALUES('marco', 4, '2010-10-05 08:32:51', 4.0, '2010-10-05 08:32:51')[0m
+Redirected to #<Seat:0xb6f44a00>
+Completed in 165ms (DB: 1) | 302 Found [http://localhost/seats]
+
+
+Processing SeatsController#show (for 127.0.0.1 at 2010-10-05 05:32:51) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mSeat Load (0.3ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats"."id" = 6) [0m
+Rendering template within layouts/seats
+Rendering seats/show
+Completed in 50ms (View: 41, DB: 0) | 200 OK [http://localhost/seats/6]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 05:32:55) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (0.9ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (23.9ms)
+Rendered flights/_new_seat (2.8ms)
+Completed in 48ms (View: 38, DB: 1) | 200 OK [http://localhost/flights/4]
+
+
+Processing SeatsController#destroy (for 127.0.0.1 at 2010-10-05 05:33:03) [DELETE]
+  Parameters: {"authenticity_token"=>"6d76641f49aade5453f6165523462ec51c40ac61", "id"=>"5"}
+  [4;35;1mSeat Load (0.3ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats"."id" = 5) [0m
+  [4;36;1mSeat Destroy (0.2ms)[0m   [0;1mDELETE FROM "seats" WHERE "id" = 5[0m
+Redirected to http://localhost:3000/seats
+Completed in 178ms (DB: 1) | 302 Found [http://localhost/seats/5]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 05:33:04) [GET]
+  [4;35;1mSeat Load (0.9ms)[0m   [0mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 49ms (View: 42, DB: 1) | 200 OK [http://localhost/seats]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 05:33:08) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mFlight Load (0.3ms)[0m   [0;1mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.8ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (19.7ms)
+Rendered flights/_new_seat (2.9ms)
+Completed in 44ms (View: 34, DB: 1) | 200 OK [http://localhost/flights/4]
+
+
+Processing SeatsController#destroy (for 127.0.0.1 at 2010-10-05 05:33:13) [DELETE]
+  Parameters: {"authenticity_token"=>"6d76641f49aade5453f6165523462ec51c40ac61", "id"=>"6"}
+  [4;36;1mSeat Load (0.5ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats"."id" = 6) [0m
+  [4;35;1mSeat Destroy (0.2ms)[0m   [0mDELETE FROM "seats" WHERE "id" = 6[0m
+Redirected to http://localhost:3000/seats
+Completed in 111ms (DB: 1) | 302 Found [http://localhost/seats/6]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 05:33:13) [GET]
+  [4;36;1mSeat Load (1.0ms)[0m   [0;1mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 27ms (View: 19, DB: 1) | 200 OK [http://localhost/seats]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 05:33:16) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mFlight Load (0.3ms)[0m   [0mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (0.6ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (16.9ms)
+Rendered flights/_new_seat (2.7ms)
+Completed in 41ms (View: 31, DB: 1) | 200 OK [http://localhost/flights/4]
+
+
+Processing SeatsController#flight_seats (for 127.0.0.1 at 2010-10-05 05:42:30) [GET]
+  Parameters: {"flight_id"=>"4"}
+  [4;36;1mFlight Load (0.3ms)[0m   [0;1mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;35;1mSeat Load (0.6ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (18.2ms)
+Completed in 32ms (View: 19, DB: 1) | 200 OK [http://localhost/flights/4/seats]
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-05 05:49:21) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mFlight Load (0.5ms)[0m   [0;1mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (1.0ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (24.0ms)
+Rendered flights/_new_seat (3.9ms)
+Completed in 97ms (View: 84, DB: 1) | 200 OK [http://localhost/flights/4/]
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-05 05:49:30) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"6d76641f49aade5453f6165523462ec51c40ac61", "seat"=>{"name"=>"jonas", "flight_id"=>"4", "baggage"=>"1"}}
+  [4;36;1mFlight Load (0.3ms)[0m   [0;1mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "seats" WHERE ("seats".flight_id = 4) [0m
+  [4;36;1mSeat Create (0.4ms)[0m   [0;1mINSERT INTO "seats" ("name", "flight_id", "created_at", "baggage", "updated_at") VALUES('jonas', 4, '2010-10-05 08:49:30', 1.0, '2010-10-05 08:49:30')[0m
+Redirected to #<Seat:0xb6c2593c>
+Completed in 131ms (DB: 1) | 302 Found [http://localhost/seats]
+
+
+Processing SeatsController#show (for 127.0.0.1 at 2010-10-05 05:49:31) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mSeat Load (0.3ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats"."id" = 7) [0m
+Rendering template within layouts/seats
+Rendering seats/show
+Completed in 64ms (View: 5, DB: 0) | 200 OK [http://localhost/seats/7]
+
+
+Processing SeatsController#flight_seats (for 127.0.0.1 at 2010-10-05 05:49:35) [GET]
+  Parameters: {"flight_id"=>"4", "authenticity_token"=>"6d76641f49aade5453f6165523462ec51c40ac61"}
+  [4;36;1mFlight Load (0.3ms)[0m   [0;1mSELECT * FROM "flights" WHERE ("flights"."id" = 4) [0m
+  [4;35;1mSeat Load (0.7ms)[0m   [0mSELECT * FROM "seats" WHERE ("seats".flight_id = 4) [0m
+Rendered flights/_seat_list (20.1ms)
+Completed in 34ms (View: 21, DB: 1) | 200 OK [http://localhost/flights/4/seats?authenticity_token=6d76641f49aade5453f6165523462ec51c40ac61]
+
+
+Processing SeatsController#destroy (for 127.0.0.1 at 2010-10-05 05:49:41) [DELETE]
+  Parameters: {"authenticity_token"=>"6d76641f49aade5453f6165523462ec51c40ac61", "id"=>"7"}
+  [4;36;1mSeat Load (0.3ms)[0m   [0;1mSELECT * FROM "seats" WHERE ("seats"."id" = 7) [0m
+  [4;35;1mSeat Destroy (0.2ms)[0m   [0mDELETE FROM "seats" WHERE "id" = 7[0m
+Redirected to http://localhost:3000/seats
+Completed in 104ms (DB: 1) | 302 Found [http://localhost/seats/7]
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-05 05:49:41) [GET]
+  [4;36;1mSeat Load (1.0ms)[0m   [0;1mSELECT * FROM "seats" [0m
+Rendering template within layouts/seats
+Rendering seats/index
+Completed in 28ms (View: 20, DB: 1) | 200 OK [http://localhost/seats]

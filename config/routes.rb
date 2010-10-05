@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect '/flights/:flight_id/seats', :action=>'flight_seats',:controller=>'seats'
+
   map.resources :seats
 
   map.resources :flights
